@@ -1,0 +1,301 @@
+<!--    Projekt 2 - Tvorba webových stránek (ITW), 2020/2021    -->
+<!--    Autor:  Zuzana Kopčilová (xkopci02)                     -->
+
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Zuzana Kopčilová</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400%7CMontserrat:400,500,600,700" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+
+    </head>
+
+    <body>
+
+        <!--- MENU -->
+        <nav id="menu" >
+            <div id="menu-bar">
+                <span id="menu-napis">Zuzana Kopčilová</span>
+                <span id="menu-button" onclick="showMenu()"><i class="fas fa-bars"></i></span>
+            </div>
+
+            <ul id="schovavaci">
+                <li><a class="item" href="http://www.stud.fit.vutbr.cz/~xkopci02/proj2/index" onclick="showMenu()"><i class="fas fa-home"></i>Home</a></li>
+                <li><a class="item" href="#About" onclick="showMenu()"><i class="fas fa-user"></i>O mně</a></li>
+                <li><a class="item" href="#Edu" onclick="showMenu()"><i class="fas fa-university"></i>Vzdělání</a></li>
+                <li><a class="item" href="#Kontakt" onclick="showMenu()"><i class="fas fa-paper-plane"></i>Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <!--- ZÁHLAVÍ -->
+        <header>
+
+            <h1 class="content">
+                <a href="http://www.stud.fit.vutbr.cz/~xkopci02/proj2/index">
+                    Zuzana Kopčilová
+                </a>
+            </h1>
+            <p class="content" id="pod-h1">
+                20letá studentka Fakulty informačních technologií na VUT v Brně, která až letos
+                začala jíst bramborový salát
+            </p>
+
+        </header>
+
+
+        <!--- SEKCE O MNĚ -->
+        <section id="About">
+            <h2 class="content">O mně</h2>
+            <div class="content">
+                
+                <div class="fact">
+                    <p>Narodila jsem se v <a href="https://cs.wikipedia.org/wiki/Krom%C4%9B%C5%99%C3%AD%C5%BE">Kroměříži</a>.</p>
+                </div>
+
+                <div class="fact">
+                    <p>Moje oblíbená barva je šedá.</p>
+                </div>
+
+
+                <div class="fact">
+                    <p>Moje znamení zvěrokruhu je štír.</p>
+                </div>
+
+                <div class="fact">
+                    <p>
+                        Moje nejoblíbenější jídlo je rajská omáčka.
+                        Můj osobní rekord v počtu k ní snězených knedlíků je 8.
+                    </p>
+                </div>
+
+                <div class="fact">
+                    <p>
+                        Nedostatek sourozenců si kompenzuji dostatkem domácích
+                        mazlíčků.
+                    </p>
+                </div>
+
+                <div class="fact">
+                    <p>
+                        Úspěšně pečuji o dva sukulenty a jeden fíkus.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--- SEKCE VZDĚLÁNÍ -->
+        <section id="Edu">
+            <h2 class="content">Vzdělání</h2>
+
+            <div class="content">
+
+                <!-- Odkazy na podsekce -->                
+                <nav id="edu-menu">
+                    <ul>
+                        <li id="edu1" class="active"><a href="javascript:void(0)" onclick="showEdu(1)">Studium</a></li>
+                        <li id="edu2"><a href="javascript:void(0)" onclick="showEdu(2)">Osvědčení</a></li>
+                        <li id="edu3"><a href="javascript:void(0)" onclick="showEdu(3)">Zkušenosti</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Podsekce -->
+                <div class="subsection" id="Stud">
+                   <h3><i class="fas fa-chevron-right"></i>Studium</h3>
+                   
+                   <!-- Sloupce pro větší zařízení -->
+                   <div class="edu-flex">
+
+                        <div class="edu-item">
+                            <h4>
+                                <a href="https://zssypky.cz/">
+                                    <i class="fas fa-building"></i>
+                                    <span>ZŠ U Sýpek, Kroměříž</span>
+                                </a>
+                            </h4>
+
+                            <ul>
+                                <li>První stupeň ZŠ</li>
+                                <li>2007-2011</li>
+                            </ul>
+                        </div>
+
+                        <div class="edu-item">
+                            <h4>
+                                <a href="https://www.gymkrom.cz/">
+                                    <i class="fas fa-school"></i>
+                                    <span>Gymnázium Kroměříž</span>
+                                </a>
+                            </h4>
+
+                            <ul>
+                                <li>Osmiletý obor (druhý stupeň ZŠ, střední škola)</li>
+                                <li>2011-2020</li>
+                            </ul>
+                        </div>
+
+                        <div class="edu-item">
+                            <h4>
+                                <a href="https://www.fit.vut.cz/">
+                                    <i class="fas fa-university"></i>
+                                    <span>FIT, VUT Brno</span>
+                                </a>
+                            </h4>
+
+                            <ul>
+                                <li>Bakalářský obor Informační technologie</li>
+                                <li>Aktuálně studentkou 1.ročníku</li>
+                                <li>2020 &ndash; ?</li>
+                            </ul>
+                        </div>
+
+                   </div>
+
+                   <a href="#Edu" class="nahoru">&uarr; Zpět k menu</a>
+                </div>
+
+                <div class="subsection" id="Certif">
+                    <h3><i class="fas fa-chevron-right"></i>Osvědčení</h3>
+
+                    <div class="edu-flex">
+                        <div class="edu-item">
+                            <h4><i class="fas fa-award"></i>CAE</h4>
+                            <ul>
+                                <li>Jazykový diplom</li>
+                                <li>Angličtina</li>
+                                <li>Úroveň C2</li>
+                            </ul>
+                        </div>
+
+                        <div class="edu-item">
+                            <h4><i class="fas fa-award"></i>DSD II</h4>
+                            <ul>
+                                <li>Jazykový diplom</li>
+                                <li>Němčina</li>
+                                <li>Úroveň C1</li>
+                            </ul>
+                        </div> 
+                        
+                        <div class="edu-item">
+                            <h4><i class="fas fa-award"></i>DSD I</h4>
+                            <ul>
+                                <li>Jazykový diplom</li>
+                                <li>Němčina</li>
+                                <li>Úroveň B1</li>
+                            </ul>
+                        </div> 
+
+                    </div>
+
+                    <a href="#Edu" class="nahoru">&uarr; Zpět k menu</a>
+                </div>
+
+                <div class="subsection" id="Exper">
+                    <h3><i class="fas fa-chevron-right"></i>Zkušenosti</h3>
+
+                    <div class="edu-flex">
+                        <div class="edu-item">
+                            <h4>Co jsem si už vyzkoušela?</h4>
+                            <ul>
+                                <li>Tvorba webových stránek &ndash; HTML 5, CSS 3, základy JavaScriptu</li>
+                                <li>Programování v C, C#</li>
+                                <li>Různé metody testování produktu v jazyce C++</li>
+                                <li>Napsat skript v shellu</li>
+                            </ul>
+                        </div>
+
+                        <div class="edu-item">
+                            <h4>Projekty</h4>
+
+                            <div id="projekty">
+
+                                <div class="projekt">
+                                
+                                    <i class="fas fa-project-diagram"></i>
+                                    <h5>Imaginární projekt 1</h5>
+                                    <a href="javascript:void(0)">Imaginární GitHub</a>
+                                
+                                    <p>
+                                        Krátký popis projektu 1, např.: Konzolová aplikace pro Windows, jazyk C#
+                                    </p>
+                                </div>
+
+                                <div class="projekt">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <h5>Imaginární projekt 2</h5>
+                                    <a href="javascript:void(0)">Imaginární GitHub</a>
+
+                                    <p>
+                                        Popis projektu 2 &ndash; byl to fajn projekt, nejlepší na něm bylo to,
+                                        že je imaginární.
+                                    </p>
+                                </div>
+
+                                <div class="projekt">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <h5>Imaginární projekt 3</h5>
+                                    <a href="javascript:void(0)">Imaginární GitHub</a>
+
+                                    <p>
+                                        Popis projektu 3, nezabral moc času, je přeci jen pouze imaginární.
+                                    </p>
+                                </div>
+
+                            </div> 
+
+                        </div>
+
+                    </div>
+
+                    <a href="#Edu" class="nahoru">&uarr; Zpět k menu</a>
+                </div>
+
+            </div>
+
+        </section> 
+
+
+        <!--- SEKCE KONTAKT -->
+        <section id="Kontakt">
+            <h2 class="content">Kontakt</h2>
+            <div class="content">
+
+                <div id="social-media">
+                    <a href="javascript:void(0)"><i class="fab fa-facebook"></i></a>
+                    <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                    <a href="javascript:void(0)"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="submit-div">
+                    <a href="mailto:z.kopcilova@seznam.cz" id="submit">Napsat e-mail</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!--- ZÁPATÍ -->
+        <footer>
+            <div class="content">
+                <span>
+                    Vytvořeno pro studijní účely v rámci předmětu ITW v akademickém roce 2020/2021.
+                </span>    
+            </div>
+        </footer>
+
+    </body>
+</html>
+
+
+
+

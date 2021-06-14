@@ -1,0 +1,622 @@
+/*    Projekt 2 - Tvorba webových stránek (ITW), 2020/2021    */
+/*    Autor:  Zuzana Kopčilová (xkopci02)                     */
+
+
+/*----- OBECNÉ STYLY PRVKŮ ----------*/
+
+*
+{
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    max-width: 100%;
+    box-sizing: inherit;
+    border:#FA3FAB 1px none;
+}
+
+html
+{
+    min-height: 100%;
+    scroll-behavior: smooth;
+    box-sizing:border-box;
+
+    /*  Zvolila jsem nastavení smooth scrollování pomocí CSS atributu, jelikož jeho implementaci v JavaScriptu 
+        příliš nerozumím, a nechci pouze okopírovat implementaci z internetu.     */  
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #FFC75F;
+    min-width: 375px; 
+    max-width: 100%;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #444444;
+
+    /*  Body má nastavenou minimální šířku 375px, většina dnes prodávaných telefonů má již obrazovku širší, a ty
+        které ne, mohou telefon otočit na šířku. 
+        Podle informací uvedených na Wikipedii (https://cs.wikipedia.org/wiki/Rozli%C5%A1en%C3%AD) je dnes nejmenší 
+        užívaný rozměr 320x480, stránka by se tedy na šířku zobrazila bez nutnosti posouvání.
+        Hlavní motivací pro určení minimální šířky bylo to, aby mohly být rozumně široké položky lokálního menu
+        v sekci "Vzdělání".      */
+}
+
+.content
+{
+    padding: 0.75rem 1.5rem;
+    max-width: 100%;
+}
+
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+h1
+{
+    margin-top: 3.5rem;
+    font-size: 2rem;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FA3FAB;
+    font-family: Poppins, sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+h2, h3
+{
+    padding-top: 2rem;
+    color: #502892;
+    font-family: Poppins, sans-serif;
+}
+
+h2.content
+{
+    text-transform: uppercase;
+    padding-left: 1.5rem;
+    padding-top: 2.8rem;
+    text-align: center;
+}
+
+section
+{
+    min-height: 100vh;
+}
+
+section h3
+{
+    padding-top: 4rem;
+}
+
+subsection
+{
+    padding-top: 1rem;
+}
+
+i
+{
+    padding-right: 0.7rem;
+}
+
+/*------  HLAVNÍ MENU PRO MOBILNÍ ZAŘÍZENÍ   ------*/
+#menu
+{
+    background-color: #845EC2;
+    color:#FFC75F;
+    font-weight: 700;
+    width: 100%;
+}
+
+#menu > ul
+{
+    list-style-type: none;
+    padding-bottom: 1rem;
+    padding-left: 35%;
+    display: none;
+    line-height: 2rem;
+
+    /*  Celý seznam je defaultně skrytý, zobrazí se při
+        rozbalení sendvičového menu.                     */
+}
+
+#menu-bar
+{
+    font-size: larger;
+    line-height: 3rem;
+    width: 100vw;;
+
+    /*  Zahrnuje #menu-napis a #menu-button.    */
+}
+
+#menu-napis
+{
+    padding-left: 2em;
+}
+
+#menu-button
+{
+    float: right;
+    padding-right: 2em;
+}
+
+.sticky
+{
+    position: fixed;
+    top: 0;
+
+    /*  Zajišťuje dostupnost menu kdekoliv na stránce.  */
+}
+
+
+/*------- SEKCE O MNĚ  ---------------*/
+
+#About > div.content
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+div.fact
+{
+    padding: 1.2rem;
+    margin: 0 1rem 2rem 1rem;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #845EC2;
+    color:#FFC75F;
+    font-weight: 600;
+}
+
+.fact a
+{
+    color: #F9F871;
+}
+
+/*------- SEKCE VZDĚLÁNÍ  ---------------*/
+
+/*  Lokální menu v této sekci je implementováno tak, že je zobrazena vždy jen jedna z karet 
+    Studium/Osvědčení/Zkušenosti. Uživatel mezi nimi může pomocí položek #edu-menu libovolně přepínat. 
+    Tlačítko aktuálně zobrazené karty má vybarvené pozadí a vedle nadpisu podsekce je ikona šipky
+    stejné barvy, aby bylo přehlednější, v jaké podsekci se uživatel nachází.
+*/
+
+#edu-menu
+{
+    text-align: center;
+}
+
+#edu-menu ul
+{
+    list-style-type: none;
+}
+
+#edu-menu li
+{
+    display: inline;
+    padding: 0.4rem;
+    margin-right: 0.25rem;
+    font-weight: 700;
+
+    /*  Padding nastaven tak, aby tlačítka byla co největší, ale stále
+        se vešla do okna o minimální šířce 375px (body: min-width).    */
+}
+
+#edu1 
+{
+    border: #B39CD0 2px solid;
+    background-color: #B39CD0;
+
+    /* Tlačítko pro zobrazení podsekce Studium, defaultně podbarveno  */
+}
+
+#edu2
+{
+    border: #FF6F91 2px solid;
+
+    /* Tlačítko pro zobrazení podsekce Osvědčení, defaultně bez pozadí  */
+}
+
+#edu3 
+{
+    border: #F9F871 2px solid;
+
+    /* Tlačítko pro zobrazení podsekce Zkušenosti, defaultně bez pozadí  */
+}
+
+#Stud
+{
+    display: block;
+
+    /*  
+    Defaultně se bude zobrazovat karta "Studium",
+    kliknutím na jinou kartu se Studium skryje
+    a zobrazí se zvolená karta.                
+    */
+}
+
+#Certif, #Exper
+{
+    display: none;
+}
+
+#Stud i
+{
+    color: #B39CD0;
+}
+
+#Certif i
+{
+    color: #FF6F91;
+}
+
+#Exper i
+{
+    color: #F9F871;
+}
+
+/*  Položky podsekce Studium */
+
+#Stud > .edu-flex
+{
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+}
+
+#Stud .edu-item
+{
+    flex: 1;
+    padding: 1.8rem;
+    margin: 1.4rem;
+    border: #B39CD0 2px solid;
+    overflow: hidden;
+}
+
+#Certif > .edu-flex
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#Certif .edu-item
+{
+    flex: 1;
+    padding: 2rem;
+    margin: 1.5rem;
+    border: #FF6F91 2px solid;
+}
+
+#Exper > .edu-flex
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#Exper .edu-item
+{
+    flex: 1;
+    padding: 2rem;
+    margin: 1.5rem;
+    border: #F9F871 2px solid;
+}
+
+.edu-item ul
+{
+    padding-left: 1.5rem;
+    padding-top: 1rem;
+    line-height: 1.5;
+}
+
+.edu-item li
+{
+    padding-bottom: 0.5rem;
+}
+
+.edu-item i
+{
+    margin-bottom: 0.5rem;
+    vertical-align: text-top;
+    padding-left: 0;
+    float: left;
+    overflow: hidden;
+}
+
+#Exper a, #Exper p, #Exper li
+{
+    font-size: small;
+}
+
+#Exper .projekt
+{
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
+}
+
+.projekt a
+{
+    font-style: oblique;
+}
+
+.projekt a:hover
+{
+    color: #F9F871;
+}
+
+.projekt p
+{
+    margin-top: 0.5rem;
+    font-weight: 300;
+}
+
+.projekt i
+{
+    line-height: 5;
+}
+
+
+a.nahoru
+{
+    font-style: oblique;
+    padding-left: 2rem;
+    text-decoration: underline;
+
+    /*  Na konci podsekcí je při prohlížení na mobilních zařízeních zobrazována
+        možnost "Zpět k menu". Kliknutím na ni se vrátí zpět nahoru ke kartám 
+        Studium/Osvědčení/Zkušenosti.                                          */
+}
+
+
+/*------- SEKCE KONTAKT  ---------------*/
+
+#Kontakt
+{
+    text-align: center;
+    min-height: 95vh;
+
+    /* hodnota snížena na 95vh, protože pod kontakty nám nevadí 
+        zobrazení zápatí        */
+}
+
+#social-media
+{
+    font-size: xx-large;
+    padding-top: 5rem;
+}
+
+#social-media a
+{
+    margin: 1rem;
+}
+
+#social-media i
+{
+    padding: 0;
+}
+
+#submit
+{
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #502892;
+    background-color: transparent;
+    border: #FF6F91 2px solid;
+    padding: 0.5rem;
+    margin: 2rem;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.submit-div
+{
+    margin-top: 3rem;
+}
+
+/*------ FOOTER ------------------*/
+
+footer
+{
+    text-align: center;
+    background-color:#444444;
+    color: #FFC75F;
+    font-size: small;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*------ STYLY PRO VELKÝ MONITOR --------*/
+
+@media (min-width: 992px)
+{
+    .content
+    {
+        margin-left: 20vw;
+        padding-left: 2rem;
+        margin-right: 0;
+    }
+
+    header
+    {
+        height: 100vh;
+        text-align: right;
+        padding-right: 4rem;
+        padding-top: 18vh;
+    }
+
+    h1.content
+    {
+        padding-top: 0;
+        margin-top: 0;
+        font-size: 110px;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: #FA3FAB;
+        color: transparent;
+        text-align: right;
+    }
+
+    h2
+    {
+        font-size: 28px;
+    }
+
+    h3
+    {
+        font-size: 18px;
+    }
+
+    section
+    {
+        padding-top: 1rem;
+    }
+
+    subsection > h3
+    {
+        padding-left: 2rem;
+    }
+
+    #menu
+    {
+        height:100%;
+
+        width: 20vw;
+        position:fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        background-image: linear-gradient(to bottom right, #502892, #845EC2, #D65DB1, #FF6F91);
+        background-size: 100%;
+    }
+
+    #menu > ul
+    {
+        display: block;
+        padding-top: 20vh;
+        padding-left: 2.5rem;
+        font-size: larger;
+        line-height: 3rem;
+    }
+
+    #menu > ul > li 
+    {
+        margin-bottom: 1.5rem;
+    }
+
+    a.item
+    {
+        display: inline-block;
+        min-width: 9rem;
+        padding: 5px 0px 5px 12px;
+        transition: 0.5s;
+    }
+
+    a.item:hover
+    {
+        background:#FFC75F;
+        color:#845EC2;
+        box-shadow: 0 0 5px #FFC75F, 0 0 25px #FFC75F,
+                    0 0 50px #FFC75F, 0 0 150px #FFC75F;
+    }
+
+    #menu-napis, #menu-button
+    {
+        display: none;
+    }
+
+    /* nastavení sekce "O mně" */
+    #About > div.content
+    {
+        grid-template-columns: calc(100%/3) calc(100%/3) calc(100%/3);
+        padding-top: 3rem;
+    }
+
+    .fact a
+    {
+        color: #FFC75F;
+    }
+
+    .fact a:hover
+    {
+        color: #F9F871;
+        text-decoration: underline;
+    }
+
+    /* nastavení sekce "Vzdělání" */
+    #edu-menu
+    {
+        padding-left: 1.5rem;
+    }
+
+    #edu-menu li a
+    {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    #edu1, #edu2, #edu3
+    {
+        border-width: 3px;
+    }
+
+    #Stud > .edu-flex
+    {
+        flex-direction: row-reverse;
+    }
+
+    #Certif > .edu-flex
+    {
+        flex-direction: row;
+    }
+
+    #Exper > .edu-flex
+    {
+        flex-direction: row;
+    }
+
+
+    #Exper .edu-item > #projekty
+    {
+        padding-top: 0.75rem;
+    }
+
+    a.nahoru
+    {
+        display: none;
+
+        /*  Při prohlížení na větších zařízeních již není zobrazována možnost
+            "Zpět k menu", jelikož není potřeba a mohla by být vizuálně rušivá.
+            V případě potřeby při přidání hodně obsahu do podsekcí je velmi 
+            jednoduché ji však přidat.               */
+    }
+
+    /* nastavení sekce "Kontakt" */
+    #social-media i:hover
+    {
+        background-image: linear-gradient(to bottom right,#845EC2, #D65DB1, #FF6F91, #FFC75F);
+        color: transparent;
+        /*background-clip: text;*/
+        -webkit-background-clip: text;
+
+        /*  Vlastnost background-clip jsem pro kompatibilitu původně chtěla definovat,
+            ale kvůli použití varianty webkit neprocházel soubor validátorem CSS .*/
+    }
+
+    #submit
+    {
+        transition: 0.5s;
+    }
+
+    #submit:hover
+    {
+        background-color:#FF6F91;
+        box-shadow: 0 0 5px #FF6F91, 0 0 25px #FF6F91;
+    }
+
+}
